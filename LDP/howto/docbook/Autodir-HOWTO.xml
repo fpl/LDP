@@ -39,10 +39,16 @@
     </editor>
 
      <!-- All dates specified in ISO "YYYY-MM-DD" format -->
-     <pubdate>2023-12-23</pubdate>
+     <pubdate>2023-12-24</pubdate>
 
      <!-- Most recent revision goes at the top; list in descending order -->
      <revhistory id="revhistory">
+       <revision>
+          <revnumber>1.06</revnumber>
+          <date>2023-12-24</date>
+          <authorinitials>FPL</authorinitials>
+          <revremark>Minor changes for typos, form and other updates</revremark>
+       </revision>
        <revision>
           <revnumber>1.05</revnumber>
           <date>2023-12-23</date>
@@ -118,7 +124,8 @@
     <!-- The LDP recommends, but doesn't require, the GFDL --> 
     <para>
      This document, <emphasis>Autodir HOWTO</emphasis>,
-     is copyrighted (c) 2004 by <emphasis>Venkata Ramana Enaganti</emphasis>.
+     is originally copyrighted (c) 2004-2007 by <emphasis>Venkata Ramana Enaganti</emphasis>. All successive changes are copyright (c) 2023 by 
+     <emphasis>Francesco Paolo Lovergine</emphasis>
 
 This work is licensed under the Creative Commons Attribution License. To view a copy of this license, visit <ulink url="http://creativecommons.org/licenses/by/2.0">http://creativecommons.org/licenses/by/2.0/</ulink> or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
 
@@ -199,11 +206,17 @@ This work is licensed under the Creative Commons Attribution License. To view a 
 <sect1>
 	<title>Before going into the details...</title>
 
-<para>After releasing his software intraperson beta, Ramana started working on a administration guide that deals with the administration aspects of <emphasis role="bold">intraPerson</emphasis>. But he was stuck with one simple thing. It is easy to create users in LDAP - at least I think so - but how to create home directories for those users in LDAP wherever those LDAP accounts are imported?</para>
+<para>After releasing his software <ulink url="https://sourceforge.net/projects/intraperson/">intraPerson</ulink> beta, Ramana started working on a administration guide that deals with the administration aspects of <emphasis role="bold">intraPerson</emphasis>. But he was stuck with one simple thing. It was easy to create users in LDAP - at least he thought so - but how to create home directories for those users in LDAP wherever those LDAP accounts were imported?</para>
 
 <para>Ramana found some solutions, but he was not satisfied as every solution has serious drawbacks.  After leafing through the Autofs documents and hacking a bit, he came to the conclusion that the Autofs protocol might offer a much better solution to this challenge.</para>
 
 <para>The result is <emphasis role="bold">Autodir</emphasis>, based on the Autofs protocol.</para>
+
+<para>
+     Ramana developed the program in the next three years and it became stable enough to be included in Debian GNU/Linux 4.0 (codename Etch) and all later
+     releases. In 2007, Ramana stepped down as developer for Autodir, and all successive support and fixes have been authored by Francesco, who actively used it
+     in a production environment since then. A long time later, he finally adopted the whole project, including this how-to.
+</para>
 
 </sect1>
 
@@ -227,7 +240,7 @@ This work is licensed under the Creative Commons Attribution License. To view a 
 	<title>Where can Autodir be used?</title>
 
 <itemizedlist>
-<listitem><para>Where user accounts reside in centralized database like LDAP, SQL, NIS, NIS+ or other databases, from which user and groups are imported to other systems. To create, for example home, group directories in those systems which import these accounts from centralized database, on demand.</para></listitem>
+<listitem><para>Where user accounts reside in centralized database like LDAP, SQL, NIS, or other databases, from which user and groups are imported to other systems. To create, for example home, group directories in those systems which import these accounts from centralized database, on demand.</para></listitem>
 
 <listitem><para>To exploit its transparent backup feature for 24*7 online systems.</para></listitem>
 
@@ -240,7 +253,7 @@ This work is licensed under the Creative Commons Attribution License. To view a 
 <sect1>
 	<title>What Autodir is not</title>
 
-<para><emphasis role="bold">Autodir</emphasis> can create directories but it does not remove them once user and/or group entries are removed from the system accounts database. Use custom made scripts from cron for this.</para>
+<para><emphasis role="bold">Autodir</emphasis> can create directories, but it does not remove them once user and/or group entries are removed from the system accounts database. Use custom made scripts from cron for this.</para>
 <!-- FIXME: this would be a good place to use xref for crosslinks.-->
 
 </sect1>
@@ -486,7 +499,7 @@ This work is licensed under the Creative Commons Attribution License. To view a 
 <sect1>
 	<title>Getting Autodir</title>
 
-    <para>At this moment <emphasis role="bold">Autodir</emphasis> is available in the main archive of Debian GNU/Linux and all its derivative distribution, including Ubuntu. Source repository is hosted on Github at <ulink url="https://github.com/fpl/autodir/">https://github.com/fpl/autodir/</ulink>.</para>
+    <para>At this moment <emphasis role="bold">Autodir</emphasis> is available in the main archive of Debian GNU/Linux and all its derivative distributions, including Ubuntu. The source repository is hosted on Github at <ulink url="https://github.com/fpl/autodir/">https://github.com/fpl/autodir/</ulink>.</para>
 
 <para>After downloading the source, follow these simple steps to install :</para>
 
